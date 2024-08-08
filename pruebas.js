@@ -93,19 +93,19 @@ const convertDayAndTime = (day, timeRange) => {
             dayOffset = -7;
             break;
         case "MAR":
-            dayOffset = 7;
+            dayOffset = 8;
             break;
         case "MIE":
-            dayOffset = 21;
+            dayOffset = 23;
             break;
         case "JUE":
-            dayOffset = 35;
+            dayOffset = 38;
             break;
         case "VIE":
-            dayOffset = 49;
+            dayOffset = 53;
             break;
         case "SAB":
-            dayOffset = 63;
+            dayOffset = 68;
             break;
         default:
             console.log("Día no válido");
@@ -136,24 +136,40 @@ let formattedCalculo = Calculo.map(teacherFormatter)
 const checkCourses = (course1, course2, course3, course4, course5) => {
     const resultados = [];
 
-    course1.forEach((course1Item, index) => {
-        course2.forEach((course2Item) => {
-            course3.forEach((course3Item) => {
-                course4.forEach((course4Item) =>{
-                    course5.forEach((course5Item) =>{
-                        const commonHours = course1Item.horas.filter(hour =>
-                            course2Item.horas.includes(hour) && course3Item.horas.includes(hour) && course4Item.horas.includes(hour) && course5Item.horas.includes(hour)
-                        );
-                        
-                        if (commonHours.length === 0) {
+    // Iterar por cada combinación de profesores en los cursos
+    course1.forEach((course1Item, index1) => {
+        course2.forEach((course2Item, index2) => {
+            course3.forEach((course3Item, index3) => {
+                course4.forEach((course4Item, index4) => {
+                    course5.forEach((course5Item, index5) => {
+
+                        // Crear un array con todas las horas de los cinco cursos
+                        const allHoras = [
+                            ...course1Item.horas,
+                            ...course2Item.horas,
+                            ...course3Item.horas,
+                            ...course4Item.horas,
+                            ...course5Item.horas
+                        ];
+
+                        // Verificar si hay duplicados en allHoras
+                        const uniqueHoras = new Set(allHoras);
+                        if (uniqueHoras.size === allHoras.length) {
+                            // Si no hay duplicados, agregar la combinación a resultados
                             resultados.push({
-                                nombre: `Horario ${index + 1}`,
-                                horas: [...new Set([...course1Item.horas, ...course2Item.horas, ...course3Item.horas, ...course4Item.horas, ...course5Item.horas])],
-                                profesores: [course1Item.profesor, course2Item.profesor, course3Item.profesor, course4Item.profesor, course5Item.profesor]
+                                nombre: `Horario ${index1 + 1}-${index2 + 1}-${index3 + 1}-${index4 + 1}-${index5 + 1}`,
+                                horas: [...uniqueHoras],
+                                profesores: [
+                                    course1Item.profesor, 
+                                    course2Item.profesor, 
+                                    course3Item.profesor, 
+                                    course4Item.profesor, 
+                                    course5Item.profesor
+                                ]
                             });
-                        }                        
-                    })
-                })
+                        }
+                    });
+                });
             });
         });
     });
@@ -163,6 +179,7 @@ const checkCourses = (course1, course2, course3, course4, course5) => {
 
 const posibles = checkCourses(formattedFilosofia, formattedDibujo, formattedFisica, formattedCalculo, formattedLabFisica);
 console.log(posibles);
+
 
 
 
@@ -222,17 +239,17 @@ const graficadora = (resultados) => {
            ];
 
         resultado.horas.forEach(hora => {
-            const index = hora % 14; 
+            const index = hora % 15; 
 
             if (index >= 0 && index < horario.length) {
-                let day = Math.floor(hora / 14);
+                let day = Math.floor(hora / 15);
                 switch (day) {
                     case 0: horario[index] = horario[index].substring(0, 8) + 'X' + horario[index].substring(9); break;
                     case 1: horario[index] = horario[index].substring(0, 17) + 'X' + horario[index].substring(18); break;
                     case 2: horario[index] = horario[index].substring(0, 26) + 'X' + horario[index].substring(27); break;
-                    case 3: horario[index] = horario[index].substring(0, 35) + 'X' + horario[index].substring(36); break;
-                    case 4: horario[index] = horario[index].substring(0, 44) + 'X' + horario[index].substring(45); break;
-                    case 5: horario[index] = horario[index].substring(0, 53) + 'X' + horario[index].substring(54); break;
+                    case 3: horario[index] = horario[index].substring(0, 37) + 'X' + horario[index].substring(38); break;
+                    case 4: horario[index] = horario[index].substring(0, 46) + 'X' + horario[index].substring(47); break;
+                    case 5: horario[index] = horario[index].substring(0, 61) + 'X' + horario[index].substring(62); break;
                 }
             }
         });
@@ -245,10 +262,3 @@ const graficadora = (resultados) => {
 
 graficadora(posibles);
 
-
-// TODO BIEN SECTOR ------------------------------------------------------------
-
-
-
-
-  
