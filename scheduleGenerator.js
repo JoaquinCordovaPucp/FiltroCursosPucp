@@ -1,22 +1,22 @@
 let Filosofia = [
-    "Mendoza, C MAR 15:00-17:00 C",
-    "Merino, R MAR 13:00-15:00 C",
-    "Merino, R MIE 13:00-15:00 C",
-    "Mendoza, C JUE 15:00-17:00 C",
+    "Mendoza1, C MAR 15:00-17:00 C",
+    "Merino1, R MAR 13:00-15:00 C",
+    "Merino2, R MIE 13:00-15:00 C",
+    "Mendoza2, C JUE 15:00-17:00 C",
 ]
 
 let Fisica = [
-    "Galvez, G LUN 07:00-09:00 C JUE 07:00-09:00 C",
-    "Gonzales, F LUN 13:00-15:00 C VIE 13:00-15:00 C",
-    "Galvez, G LUN 09:00-11:00 C JUE 10:00-12:00 C",
-    "Gonzales, F MIE 11:00-13:00 C VIE 15:00-17:00 C",
+    "Galvez1, G LUN 07:00-09:00 C JUE 07:00-09:00 C",
+    "Gonzales1, F LUN 13:00-15:00 C VIE 13:00-15:00 C",
+    "Galvez2, G LUN 09:00-11:00 C JUE 10:00-12:00 C",
+    "Gonzales2, F MIE 11:00-13:00 C VIE 15:00-17:00 C",
 ]
 
 let Dibujo = [
     "Ramirez, V LUN 07:00-10:00 C",
-    "Sicha, A MAR 07:00-10:00 C",
-    "Sicha, A MIE 07:00-10:00 C",
-    "Sicha, A MAR 10:00-13:00 C",
+    "Sicha1, A MAR 07:00-10:00 C",
+    "Sicha2, A MIE 07:00-10:00 C",
+    "Sicha3, A MAR 10:00-13:00 C",
 ]
 
 let LabFisica = [
@@ -48,8 +48,8 @@ let LabFisica = [
 ];
 
 let Calculo = [
-    "Henostroza, J LUN 11:00-13:00 C MIE 11:00-13:00 C",
-    "Henostroza, J MAR 11:00-13:00 C SAB 12:00-14:00 C"
+    "Henostroza1, J LUN 11:00-13:00 C MIE 11:00-13:00 C",
+    "Henostroza2, J MAR 11:00-13:00 C SAB 12:00-14:00 C"
 ]
 
 
